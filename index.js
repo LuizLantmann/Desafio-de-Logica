@@ -17,16 +17,20 @@ const testMeli = (maxDigit) => {
 };
 
 // para verificar suas respostas em outros casos
-const arraysIguais = (arr1, arr2) => {
-  if (arr1?.length !== arr2?.length) {
-    return false;
-  }
-  for (let i = 0; i < arr1?.length; i++) {
-    if (arr1[i] !== arr2[i]) {
-      return false;
+const arraysIguais = (maxDigit) => {
+  const results = [];
+  for (let i = 0; i <= maxDigit; i++) {
+    for (let j = 0; j <= maxDigit; j++) {
+      for (let k = 0; k <= maxDigit; k++) {
+        for (let l = 0; l <= maxDigit; l++) {
+          if (i + j + k + l === 21) {
+            results.push(parseInt(`${i}${j}${k}${l}`));
+          }
+        }
+      }
     }
   }
-  return true;
+  return results;
 };
 
 // resultado completo caso maxDigit=6
